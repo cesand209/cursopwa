@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Practicas con promesas</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+	
+
+
+function sumaruno(numero, callback){
+
+
+	setTimeout(function() { 
+
+		callback(numero+1)
+
+	}, 500);
+
+}
+
+
+/* ejercicio con callback */
+console.log('ejercicio con callback')
+sumaruno(5, function( resultado ) {
+
+	console.log(resultado)
+	sumaruno(resultado, function(resultado2) {
+	
+		console.log(resultado2)		
+		sumaruno(resultado2, function (resultado3) {
+			
+			console.log(resultado3)
+
+		})
+
+	})
+
+})
+
+;
+
+/****************************************/
+/*ejercicio con promesas*/
+console.log('ejercicio con promeas')
+
+function sumar(numero) {
+	var promesa = new Promise(function (resolve, reject) {
+		
+		setTimeout(function () {
+		
+			resolve(numero + 1)
+
+		}, 1800)
+
+	})
+
+	return promesa
+}
+
+sumar(10)
+	.then(resultado => {
+		console.log(resultado)
+		return sumar(resultado)
+	})
+	.then(resultado2 => {
+		console.log(resultado2)
+		return sumar(resultado2)
+	})
+	.then(resultado3 => {
+		console.log(resultado3)
+		return sumar(resultado3)
+	})
+	.catch(err => {
+		
+	})
+
+
+
+
+</script>
+
+</body>
+</html>

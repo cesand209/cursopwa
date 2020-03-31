@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Practicascon all y race</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+	
+
+/*EJEMPLO USANDO FUNCION TRADICIONAL(NO FUNCION DE FLECHA)*/
+function nombredia(numdia) {
+	return new Promise( (resolve, reject) => {
+
+		if(numdia > 7){
+			reject('No existe dia '+numdia+' en la semana')
+		}
+
+		var d = new Date();
+		var weekday = new Array(7);
+		weekday[0] =  "Sabado";
+		weekday[1] = "Lunes";
+		weekday[2] = "Martes";
+		weekday[3] = "Wednesday";
+		weekday[4] = "Thursday";
+		weekday[5] = "Friday";
+		weekday[6] = "Saturday";
+
+		resolve(weekday[d.getDay()])
+
+			
+	})
+
+}
+
+
+/*EJEMPLO CON FUNCION DE FLECHA */
+var nombremes = nummes => {
+	return new Promise( (resolve, reject) => {
+
+		if(nummes > 7){
+			reject('No existe el mes '+nummes+' del año')
+		}
+
+		var f = new Date();
+		var month = new Array();
+		month[0] = "January";
+		month[1] = "February";
+		month[2] = "March";
+		month[3] = "April";
+		month[4] = "May";
+		month[5] = "June";
+		month[6] = "July";
+		month[7] = "Agosto";
+		month[8] = "September";
+		month[9] = "October";
+		month[10] = "November";
+		month[11] = "December";
+
+		resolve(month[f.getMonth()])
+
+			
+	})
+
+}
+
+var anio = (numanio) => {
+	algunosanios = new Array('', 'Enero', 'Febrero', 'Marzo')
+	return algunosanios[numanio]
+}
+
+var fecha = new Date
+
+Promise.all([ nombredia(fecha.getDay()), nombremes(fecha.getMonth()),anio(2) ])
+	.then(respuestas => console.log(respuestas))
+
+
+/*  **************** METODO ALL
+ -- EL METODO ALL DEVUELVE LAS RESPUESTAS DE CADA PROMESA EN EL ORDEN QUE SE CAGARON.
+ -- SI FALLA UNA DE LAS PROMESAS DENTRO DEL ALL TODO FALLARA
+*/
+
+/*  **************** METODO RACE
+ -- DEVUELVE UNA SALA RESPUESTA ES DECIR UNA DE TODAS LAS POMESAS QUE SE AGREGARON COMO PARAMETROS.
+ -- DUELVE UNA UNICA RESPUESTA Y LA QUE PRIMERO SE RESUELVA.
+ -- SI SE RESUELVENAL MISMO TIEMPO LA RESPUESTA RESA LA DEL PARAMETRO QUE ESTE MAS A LA IZQUIERDA.
+ -- PUEDE DAR ERROR ALGUNA PROMESA CARGADA PERO SI SE RESUELVE ALTES ALGUNA QUE NO DE ERROR DEVOLVERA LA RESPUES DE LA QUE SE RESOLVIO ANTES Y SIN ERROR
+*/
+
+
+</script>
+</body>
+</html>

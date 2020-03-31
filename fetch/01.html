@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PETICION GET A https://reqres.in/</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+	
+fetch('https://reqres.in/api/users')
+	.then(respuesta => respuesta.json())
+	.then(obj => {
+
+		console.log(obj.data)
+
+	})
+
+</script>
+
+</body>
+</html>
