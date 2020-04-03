@@ -24,7 +24,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12 jumbotron">
-			<h1 class="text-center mt-2 textheader">Curso PWA EDteam</h1>
+			<h1 class="text-center mt-2 textheader">Curso PWA</h1>
 		</div>
 	</div>
 </div>
